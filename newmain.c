@@ -36,25 +36,6 @@ const int unsigned look_up_table [] = {
          0b01111001, //E
          0b01110001 //F
     };
-const int unsigned look_up [] = {
-         0b00111111, 
-         0b00000110, 
-         0b01011011, 
-         0b01001111, 
-         0b01100110, 
-         0b01101101, 
-         0b01111101, 
-         0b00000111, 
-         0b01111111,
-         0b01101111,
-         0b01110111,
-         0b01111100,
-         0b00111001,
-         0b01011110,
-         0b01111001, 
-         0b01110001 
-    };
-
 
 void portc()
 {
@@ -63,49 +44,20 @@ void portc()
         if (index>15)
             index=0;
         
-        else {PORTC=look_up[index];
+        else {PORTC=look_up_table[index];
         __delay_ms(150);
         index++;}
     }
     
 }
 
-void portb()
-{
-    TRISB = 0x00;
-    while(1) {
-        if (index>9)
-            index=0;
-        
-        else {PORTB=look_up[index];
-        __delay_ms(150);
-        index++;}
-    }
-    
-}
+
 void main(void) {
     
     portc();
-    portb();
     
-     // TRISB=0x00;
-       /*TRISC = 0x00;     
-       
-      
-       while(1)           
-       { 
-           if(index>9)
-           index=0;
-              
-       else
-       {
-           PORTC=look_up_table[index];
-       __delay_ms(150);
-       index++;
-       
-       }
-    }*/
-
+     
 return;
 }
+
 
