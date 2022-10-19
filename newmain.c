@@ -45,7 +45,7 @@ void portc()
             index=0;
         
         else {PORTC=look_up_table[index];
-        __delay_ms(150);
+        __delay_ms(1500);
         index++;}
     }
     
